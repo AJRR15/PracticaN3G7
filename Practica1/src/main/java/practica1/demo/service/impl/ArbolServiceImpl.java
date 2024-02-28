@@ -41,6 +41,11 @@ public class ArbolServiceImpl implements ArbolService {
     public void eliminarArbol(Arbol arbol) {
         arbolDao.delete(arbol);
     }
+    @Override
+    @Transactional
+    public void modificarArbol(Arbol arbol) {
+        arbolDao.save(arbol);
+    }
 
     @Override
     @Transactional(readOnly = true)

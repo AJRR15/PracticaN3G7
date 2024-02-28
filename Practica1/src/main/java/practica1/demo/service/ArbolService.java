@@ -13,6 +13,6 @@ public interface ArbolService {
      public void guardarArbol(Arbol arbol);
      public void eliminarArbol(Arbol arbol);
      public Arbol obtenerArbolPorId(Long id);
-     
+     public void modificarArbol(Arbol arbol);
 }
     

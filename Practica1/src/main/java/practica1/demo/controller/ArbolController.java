@@ -47,12 +47,13 @@ public class ArbolController {
     public String mostrarFormularioModificar(@PathVariable Long id, Model model) {
         Arbol arbol = arbolService.obtenerArbolPorId(id);
         model.addAttribute("arbol", arbol);
-        return "editarArbol"; // Mostrar el formulario de edición de árbol
+        return "arbol/fragmentos :: editarArbol";
     }
 
-    @PostMapping("/arbol/modificar")
-    public String modificarArbol(@ModelAttribute Arbol arbol) {
-        arbolService.guardarArbol(arbol); // Actualizar el árbol
-        return "redirect:/"; // Redirigir al listado de árboles después de modificar uno
+    @PostMapping("/arbol/modificar/{id}")
+    public String modificarArbol(@PathVariable Long id, @ModelAttribute Arbol arbol) {
+    // Realiza la lógica para modificar el árbol con el ID proporcionado
+        arbolService.guardarArbol(arbol);
+        return "redirect:/"; // Redirige al listado de árboles después de la modificación
     }
-    }
+}
