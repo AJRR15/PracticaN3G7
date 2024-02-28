@@ -42,4 +42,17 @@ public class ArbolController {
         }
         return "redirect:/"; // Redirige al listado de árboles después de eliminar uno
     }
-    }   
+
+    @GetMapping("/arbol/modificar/{id}")
+    public String mostrarFormularioModificar(@PathVariable Long id, Model model) {
+        Arbol arbol = arbolService.obtenerArbolPorId(id);
+        model.addAttribute("arbol", arbol);
+        return "editarArbol"; // Mostrar el formulario de edición de árbol
+    }
+
+    @PostMapping("/arbol/modificar")
+    public String modificarArbol(@ModelAttribute Arbol arbol) {
+        arbolService.guardarArbol(arbol); // Actualizar el árbol
+        return "redirect:/"; // Redirigir al listado de árboles después de modificar uno
+    }
+    }
