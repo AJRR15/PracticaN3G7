@@ -144,12 +144,12 @@
         </div>
     </section>
     <!-- Fragmento para editar árbol -->
-<section th:fragment="editarArbol">
-    <div class="container mt-5">
+    <section th:fragment="editarArbol">
+    <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h4 class="mb-4">Editar Árbol</h4>
-                <form th:action="@{/arbol/modificar}" th:object="${arbol}" method="post">
+            <div class="col-md-12">
+                <h4>Editar Árbol</h4>
+                <form th:action="@{/arbol/modificar/{id}(id=${arbol.idArbol})}" th:object="${arbol}" method="post">
                     <input type="hidden" th:field="*{idArbol}"/>
                     <div class="form-group">
                         <label for="nombreComun">Nombre Común</label>
